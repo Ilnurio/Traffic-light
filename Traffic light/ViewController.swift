@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    
     @IBOutlet weak var redLabel: UIView!
     @IBOutlet weak var yellowLabel: UIView!
     @IBOutlet weak var greenLabel: UIView!
@@ -21,19 +21,22 @@ class ViewController: UIViewController {
         yellowLabel.layer.cornerRadius = 65
         greenLabel.layer.cornerRadius = 65
     }
-
     
     @IBAction func changeColorButton() {
-//        changeButton.setTitle("NEXT", for: .normal)
-//        redLabel.alpha = 1
-//        if yellowLabel.alpha == 0.3 {
-//            redLabel.alpha = 0
-//            yellowLabel.alpha = 1
-//        } else {
-//            redLabel.alpha = 0.3
-//            yellowLabel.alpha = 0.3
-//            greenLabel.alpha = 1
-//        }
+        changeButton.setTitle("NEXT", for: .normal)
+        
+        if redLabel.alpha == 0.5 {
+            redLabel.alpha = 1
+        } else if redLabel.alpha == 1 {
+            redLabel.alpha = 0.3
+            yellowLabel.alpha = 1
+        } else if yellowLabel.alpha == 1 {
+            yellowLabel.alpha = 0.3
+            greenLabel.alpha = 1
+        } else if greenLabel.alpha == 1 {
+            greenLabel.alpha = 0.3
+            redLabel.alpha = 1
+        }
     }
 }
 
