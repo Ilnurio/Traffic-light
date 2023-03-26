@@ -24,7 +24,7 @@ final class ViewController: UIViewController {
         
         startButton.layer.cornerRadius = 10
         
-        redLight.alpha = lightIsOn
+        redLight.alpha = lightIsOff
         yellowLight.alpha = lightIsOff
         greenLight.alpha = lightIsOff
     }

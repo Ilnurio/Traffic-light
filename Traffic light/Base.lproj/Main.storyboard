@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,21 +14,31 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Traffic_light" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pma-2w-aUr">
-                                <rect key="frame" x="122" y="38" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-Nm-W5l">
-                                <rect key="frame" x="122" y="196" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-oO-kC7">
-                                <rect key="frame" x="128" y="558" width="118" height="61"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-Ev-3UV">
+                                <rect key="frame" x="139.33333333333331" y="40.000000000000028" width="135.33333333333331" height="485.66666666666674"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pma-2w-aUr">
+                                        <rect key="frame" x="0.0" y="0.0" width="135.33333333333334" height="135.33333333333334"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="pma-2w-aUr" secondAttribute="height" multiplier="1:1" id="UXd-jR-bgr"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-Nm-W5l">
+                                        <rect key="frame" x="0.0" y="175.33333333333334" width="135.33333333333334" height="135.00000000000003"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="502-dt-HaK">
+                                        <rect key="frame" x="0.0" y="350.33333333333331" width="135.33333333333334" height="135.33333333333331"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-oO-kC7">
+                                <rect key="frame" x="142" y="620.66666666666663" width="130" height="67.333333333333371"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ohm-oO-kC7" secondAttribute="height" multiplier="118:61" id="LG0-Lo-ptG"/>
@@ -42,16 +52,15 @@
                                     <action selector="changeColorButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWt-ZV-00K"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="502-dt-HaK">
-                                <rect key="frame" x="122" y="359" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ohm-oO-kC7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6qR-t6-DJj"/>
+                            <constraint firstItem="W5e-Ev-3UV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.65967" id="X1x-DM-sZX"/>
+                            <constraint firstItem="W5e-Ev-3UV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="hn5-Nm-MUx"/>
+                            <constraint firstItem="Ohm-oO-kC7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0914543" id="oWN-6w-Ixg"/>
+                            <constraint firstItem="W5e-Ev-3UV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vXE-5A-eCp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ohm-oO-kC7" secondAttribute="bottom" constant="48" id="xIu-Cl-l2N"/>
                         </constraints>
                     </view>
