@@ -9,47 +9,54 @@ import UIKit
 
 final class ViewController: UIViewController {
     
+    @IBOutlet weak var redLight: UIView!
+    @IBOutlet weak var yellowLight: UIView!
+    @IBOutlet weak var greenLight: UIView!
     
-    @IBOutlet weak var redLabel: UIView!
-    @IBOutlet weak var yellowLabel: UIView!
-    @IBOutlet weak var greenLabel: UIView!
-    @IBOutlet weak var changeButton: UIButton!
-
-    private enum Color {
-        case red
-        case yellow
-        case green
-    }
+    @IBOutlet weak var startButton: UIButton!
     
-    private var color: Color = .red
+    private var currentLight: CurrentLight = .red
+    private let lightIsOn: CGFloat = 1
+    private let lightIsOff: CGFloat = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        changeButton.layer.cornerRadius = 10
-        redLabel.layer.cornerRadius = 65
-        yellowLabel.layer.cornerRadius = 65
-        greenLabel.layer.cornerRadius = 65
+        startButton.layer.cornerRadius = 10
         
+        redLight.alpha = lightIsOn
+        yellowLight.alpha = lightIsOff
+        greenLight.alpha = lightIsOff
+        
+        redLight.layer.cornerRadius = redLight.frame.width / 2
+        yellowLight.layer.cornerRadius = yellowLight.frame.width / 2
+        greenLight.layer.cornerRadius = greenLight.frame.width / 2
     }
     
     @IBAction func changeColorButton() {
-        changeButton.setTitle("NEXT", for: .normal)
+        if startButton.currentTitle == "START" {
+            startButton.setTitle("NEXT", for: .normal)
+        }
         
-        switch color {
+        switch currentLight {
         case .red:
-            redLabel.alpha = 1
-            greenLabel.alpha = 0.3
-            color = .yellow
+            redLight.alpha = lightIsOn
+            greenLight.alpha = lightIsOff
+            currentLight = .yellow
         case .yellow:
-            redLabel.alpha = 0.3
-            yellowLabel.alpha = 1
-            color = .green
+            redLight.alpha = lightIsOff
+            yellowLight.alpha = lightIsOn
+            currentLight = .green
         case .green:
-            yellowLabel.alpha = 0.3
-            greenLabel.alpha = 1
-            color = .red
+            yellowLight.alpha = lightIsOff
+            greenLight.alpha = lightIsOn
+            currentLight = .red
         }
     }
 }
 
+extension ViewController {
+    private enum CurrentLight {
+        case red, yellow, green
+    }
+}
